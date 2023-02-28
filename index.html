@@ -14,51 +14,6 @@
 
 
         <title>Blockchain Research Symposium</title>
-        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARfVVqVNAIYVlRE4fDTYov5vpBgLnIF5s&callback=initMap"> </script>
-
-        <script>
-        $(document).ready(function(){
-            console.log("hi");
-            var sectionIds = $('a.nav-link');
-
-            $(document).scroll(function(){
-                sectionIds.each(function(){
-
-                    var container = $(this).attr('href');
-                    var containerOffset = $(container).offset().top;
-                    var containerHeight = $(container).outerHeight();
-                    var containerBottom = containerOffset + containerHeight;
-                    var scrollPosition = $(document).scrollTop();
-
-                    if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
-                        // Remove all other <actives></actives>
-                        sectionIds.each(function(){
-                            $(this).removeClass('border-[FFB800]');
-                            $(this).addClass('border-white');
-                        });
-                        $(this).addClass('border-[FFB800]');
-                        $(this).removeClass('border-white');
-                    }
-                });
-            });
-
-        });
-        function initMap() {
-            geocoder = new google.maps.Geocoder();
-            let map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: 40.7128, lng: -74.0060},
-                zoom: 16
-            });
-            let marker = new google.maps.Marker({
-                map,
-            });
-            geocoder.geocode({ address: "2501 SPEEDWAY,AUSTIN, TX 78712"}).then((response) => {
-                console.log("got resp", response);
-                map.setCenter(response.results[0].geometry.location);
-                marker.setPosition(response.results[0].geometry.location);
-            });
-        }
-        </script>
     </head>
     <body class="relative">
         <header class="fixed flex justify-between items-center h-20 p-4 bg-white w-full z-20">
@@ -104,7 +59,7 @@
                 </span>
             </p>
         </div>
-        <article  id="schedule" class="bg-[FFB800] p-8 pr-14 mx-10 md:mx-20 -translate-y-10 md:-translate-y-6 border-8 border-white">
+        <article id="schedule" class="bg-[FFB800] p-8 pr-14 mx-10 md:mx-20 -translate-y-10 md:-translate-y-6 border-8 border-white">
             <p class="font-semibold">WEDNESDAY, APRIL 26, 2023, 9:00 AM - 6:30 PM </p>
             <p>Engineering Education and Research Center</p>
             <div class="flex flex-col lg:flex-row">
@@ -126,27 +81,30 @@
                     <p class="font-semibold text-xl">9:00 AM - 4:30 PM</p>
                     <p class="text-sm -translate-y-2">Talks by Researchers</p>
                     <div class="flex flex-col md:flex-row md:space-x-6">
-                        <img src="public/talks.png" style="height:30%;" alt=""/>
-                        <p class="text-xl max-w-lg font-[Tinos]">
-Leading Researchers in the field of Blockchains and Cryptocurrencies will present their latest research results.                      </p>
+                        <img class="w-96 object-cover" src="public/talks.png" alt=""/>
+                        <p class="text-xl font-[Tinos] flex-grow">
+Leading Researchers in the field of Blockchains and Cryptocurrencies will present their latest research results.
+                        </p>
                     </div>
                 </section>
                 <section>
                     <p class="font-semibold text-xl">12:00 PM - 1:00 PM</p>
                     <p class="text-sm -translate-y-2">Lunch Panel on Blockchain Education & Research</p>
                     <div class="flex flex-col md:flex-row md:space-x-6">
-                        <img src="public/panel2.png" alt=""/>
-                        <p class="text-xl max-w-lg font-[Tinos]">
-Join us for a student-run, student-oriented lunch panel on blockchain education and research in conjunction with the Blockchain Acceleration Foundation (BAF)                       </p>
+                        <img class="w-96 object-cover" src="public/panel2.png" alt=""/>
+                        <p class="text-xl font-[Tinos]">
+Join us for a student-run, student-oriented lunch panel on blockchain education and research in conjunction with the Blockchain Acceleration Foundation (BAF)
+                        </p>
                     </div>
                 </section>
                 <section>
                     <p class="font-semibold text-xl">5:00 PM - 6:30 PM</p>
                     <p class="text-sm -translate-y-2">Poster Session and Reception</p>
                     <div class="flex flex-col md:flex-row md:space-x-6">
-                        <img src="public/panel.png" alt=""/>
-                        <p class="text-xl max-w-lg font-[Tinos]">
-Students will present posters on their research together with a reception.                        </p>
+                        <img class="w-96 object-cover" src="public/panel.png" alt=""/>
+                        <p class="text-xl font-[Tinos]">
+Students will present posters on their research together with a reception.
+                        </p>
                     </div>
                 </section>
             </div>
@@ -347,4 +305,50 @@ Students will present posters on their research together with a reception.      
             </div>
         </footer>
     </body>
+
+    <script>
+    $(document).ready(function(){
+        var sectionIds = $('a.nav-link');
+
+        $(document).scroll(function(){
+            sectionIds.each(function(){
+
+                var container = $(this).attr('href');
+                var containerOffset = $(container).offset().top;
+                var containerHeight = $(container).outerHeight();
+                var containerBottom = containerOffset + containerHeight;
+                var scrollPosition = $(document).scrollTop();
+
+                if(scrollPosition < containerBottom - 20 && scrollPosition >= containerOffset - 20){
+                    // Remove all other <actives></actives>
+                    sectionIds.each(function(){
+                        $(this).removeClass('border-[FFB800]');
+                        $(this).addClass('border-white');
+                    });
+                    $(this).addClass('border-[FFB800]');
+                    $(this).removeClass('border-white');
+                }
+            });
+        });
+
+    });
+    function initMap() {
+        geocoder = new google.maps.Geocoder();
+        let mapDiv = document.getElementById('map');
+        console.log("mapDiv", mapDiv);
+        let map = new google.maps.Map(mapDiv, {
+            center: {lat: 40.7128, lng: -74.0060},
+            zoom: 16
+        });
+        let marker = new google.maps.Marker({
+            map,
+        });
+        geocoder.geocode({ address: "2501 SPEEDWAY,AUSTIN, TX 78712"}).then((response) => {
+            console.log("got resp", response);
+            map.setCenter(response.results[0].geometry.location);
+            marker.setPosition(response.results[0].geometry.location);
+        });
+    }
+    </script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARfVVqVNAIYVlRE4fDTYov5vpBgLnIF5s&callback=initMap"> </script>
 </html>
