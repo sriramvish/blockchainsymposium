@@ -638,10 +638,6 @@ html {
   height: 13rem;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .h-40 {
   height: 10rem;
 }
@@ -704,6 +700,10 @@ html {
 
 .max-w-3xl {
   max-width: 48rem;
+}
+
+.max-w-\[800px\] {
+  max-width: 800px;
 }
 
 .flex-1 {
