@@ -638,8 +638,8 @@ html {
   height: 13rem;
 }
 
-.h-40 {
-  height: 10rem;
+.h-44 {
+  height: 11rem;
 }
 
 .h-1 {
@@ -658,6 +658,10 @@ html {
   height: 100%;
 }
 
+.h-40 {
+  height: 10rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -670,16 +674,20 @@ html {
   width: 8rem;
 }
 
-.w-40 {
-  width: 10rem;
+.w-44 {
+  width: 11rem;
 }
 
 .w-1\/2 {
   width: 50%;
 }
 
-.w-\[800px\] {
-  width: 800px;
+.w-52 {
+  width: 13rem;
+}
+
+.w-40 {
+  width: 10rem;
 }
 
 .max-w-5xl {
@@ -688,6 +696,10 @@ html {
 
 .max-w-sm {
   max-width: 24rem;
+}
+
+.max-w-\[800px\] {
+  max-width: 800px;
 }
 
 .max-w-md {
@@ -700,10 +712,6 @@ html {
 
 .max-w-3xl {
   max-width: 48rem;
-}
-
-.max-w-\[800px\] {
-  max-width: 800px;
 }
 
 .flex-1 {
